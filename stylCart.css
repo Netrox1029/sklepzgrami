@@ -1,0 +1,96 @@
+*{
+    margin: 0;   
+}
+header{
+    display: flex;
+    width: 100%;
+    height: 125px;
+    background-color: rgb(73, 71, 71);    
+}
+header div h1{
+    text-align: center;
+     font-style: italic;
+    font-size: 72px;
+    font-weight: bold;
+    color: white;
+    text-shadow:
+    -10px -2px 0 #000,
+    4px -2px 0 #000,
+    -10px 2px 0 #000,
+    4px 2px 0 #000;
+}
+header div{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+header div p a{
+    text-align: center;
+    color: white;
+    font-size: xx-large;
+    text-decoration: none;
+}
+header div p {
+    text-align: center;
+    color: white;
+    font-size: xx-large;
+    text-decoration: none;
+}
+.cartLook div{
+    background-color: lightgray;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+.paymentLook{
+    padding: 50px;
+}
+.paymentLook button{
+    width: 150px;
+    padding: 15px;
+    background-color: rgb(93, 215, 93);
+    border: 2px solid black;
+    border-radius: 20px;
+}
+.paymentLook button:hover{
+    width: 175px;
+    padding: 15px;
+    background-color:rgb(66, 178, 66) ;
+    border: 3px solid black;
+    border-radius: 20px;
+}
+.gamesBtn{
+    width: 75px;
+    padding: 15px;
+    background-color: rgb(93, 215, 93);
+    border: 2px solid black;
+    border-radius: 20px;
+}
+.gameInfoLook{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20px;
+}
+.emptyCart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+
+}
+.zakupHis img,p{
+    padding: 10px;
+}
+.zakupHis{
+    background-color: rgb(116, 114, 114);
+    width: 40%;
+    display:flex;
+   align-items: center;
+   padding: 20px;
+}

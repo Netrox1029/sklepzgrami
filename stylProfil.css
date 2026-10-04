@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+}
+header{
+    background-color: rgb(162, 159, 159);
+    width: 100%;
+    height: 100px;
+    
+}
+header div{
+    display: inline-flex;
+}
+header div h1{
+    font-style: italic;
+    font-size: 40px;
+    padding: 25px;
+}
+header div a{
+    text-align: end;
+    font-size: 20px;
+    color:white;
+    margin: 30px;
+}
+header div a:nth-child(1){
+    padding-left: 1000px;
+}
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url(gracz.jpg) center/cover no-repeat;
+  opacity: 0.9; 
+  z-index: -1;
+}
+.wholeProfil::before{
+    width: 1000px;
+    height: 500px;
+    content: "";
+    position:absolute;
+    opacity: 0.6;
+    z-index: -1;
+    border: 5px solid white;
+    border-radius: 40px;
+    background-color: rgb(73, 71, 71);
+
+}
+.wholeProfil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+
+}
+.info{
+    text-align:left;
+    border: 5px solid white;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom: none;
+    margin-top: 1px;
+    width: 1000px;
+    height: 100px;
+    opacity: 1;
+    background-color: rgb(73, 71, 71);
+}
+.info p:nth-child(2), p:nth-child(3),p:nth-child(4) {
+    padding-left: 10px;
+}
+.info p:nth-child(1){
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 30px;
+}
+.gamesOwned{
+    width: 1000px;
+    overflow-y: scroll;
+    height: 350px;
+}
+.gamesOwned h2{
+    font-size: 40px;
+    padding: 20px;
+}
+.gamesOwned div{
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+
