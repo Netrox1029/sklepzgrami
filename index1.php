@@ -9,7 +9,8 @@ $SQL = "SELECT
     s.title AS seria,
     appid,
     cena,
-    GROUP_CONCAT(gn.Nazwa SEPARATOR ', ') AS gatunki
+    GROUP_CONCAT(gn.Nazwa SEPARATOR ', ') AS gatunki,
+    g.Rok_Wydania AS rok
 FROM game g
 LEFT JOIN producent p ON g.Producent_ID = p.Producent_ID
 LEFT JOIN wydawca w ON g.Wydawca_ID = w.Wydawca_ID
@@ -42,47 +43,39 @@ $row = mysqli_fetch_all($results);
             <p><a href="logIn.php">Użyj innego konta</a></p>
             <p><a href="Cart.php">Mój koszyk</a></p>
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'): ?>
-            <p><a href="Dodawanie.php">Dodaj gre</a></p>
-            <p><a href="DodBazyDanych.php">Dodaj Pro/Wyd/Serie</a></p>
-            <?php endif;?>
+                <p><a href="Dodawanie.php">Dodaj gre</a></p>
+                <p><a href="DodBazyDanych.php">Dodaj Pro/Wyd/Serie</a></p>
+            <?php endif; ?>
         </div>
     </header>
     <main class="StronaG">
         <div class="MainContener">
-            <table class="tableMain">
-                <tr>
-                    <th></th>
-                    <th>Gra</th>
-                    <th>producent</th>
-                    <th>wydawca</th>
-                    <th>Seria</th>
-                    <th>Cena</th>
-                    <th>gatunki</th>
-
-                </tr>
+            <div class="tableMain">
                 <?php foreach ($row as $record): ?>
                     <?php
                     $num = $record[5];
                     $appid = "https://cdn.cloudflare.steamstatic.com/steam/apps/$num/header.jpg";
                     ?>
-                    <tr>
-                        <td><img src="<?= $appid ?>"></td>
-                        <td><?php echo $record[1]; ?></td>
-                        <td><?php echo $record[2]; ?></td>
-                        <td><?php echo $record[3]; ?></td>
-                        <td><?php echo $record[4]; ?></td>
-                        <td><?php echo $record[6]; ?> zł</td>
-                        <td><?php echo $record[7]; ?></td>
-
-                        <td>
+                    <div class="gameTab">
+                            <img src="<?= $appid ?>">
+                            <div class="gameInfo">
+                            <div class="gameTitle"><?php echo $record[1]; ?></div>
+                            <div class="gameItemsTag">
+                                <!-- <span><?php echo $record[2]; ?></span> -->
+                                <!-- <span><?php echo $record[3]; ?></span> -->
+                                <!-- <span><?php echo $record[4]; ?></span> -->
+                                <!-- <span><?php echo $record[6]; ?> zł</span> -->
+                                <span><?php echo $record[7]; ?></span><br><Br>
+                                <span>Rok wydania: <?php echo $record[8];?></span>
+                            </div>
+                            </div>
                             <form method="POST" action="./Cart.php">
                                 <input type="hidden" name="game_id" value="<?= $record[0] ?>">
                                 <button type="submit" name="addToCart" class="btnBuy">Dodaj do koszyka</button>
                             </form>
-                        </td>
                         <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'): ?>
 
-                            <td>
+                            <div>
                                 <form method="POST">
                                     <input type="hidden" name="gameToDelete" value="<?= $record[0] ?>">
                                     <button name="btnDelete" class="btnDelete">Usuń</button>
@@ -104,12 +97,12 @@ $row = mysqli_fetch_all($results);
                                     <input type="hidden" name="game_id" value="<?= $record[0] ?>">
                                     <button class="btnEdit">Edytuj</button>
                                 </form>
-                            </td>
+                            </div>
 
                         <?php endif; ?>
-                    </tr>
+                    </div>
                 <?php endforeach; ?>
-            </table>
+            </div>
         </div>
     </main>
     <footer>
