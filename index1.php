@@ -57,8 +57,8 @@ $row = mysqli_fetch_all($results);
                     $appid = "https://cdn.cloudflare.steamstatic.com/steam/apps/$num/header.jpg";
                     ?>
                     <div class="gameTab">
-                            <img src="<?= $appid ?>">
-                            <div class="gameInfo">
+                        <img src="<?= $appid ?>">
+                        <div class="gameInfo">
                             <div class="gameTitle"><?php echo $record[1]; ?></div>
                             <div class="gameItemsTag">
                                 <!-- <span><?php echo $record[2]; ?></span> -->
@@ -66,16 +66,22 @@ $row = mysqli_fetch_all($results);
                                 <!-- <span><?php echo $record[4]; ?></span> -->
                                 <!-- <span><?php echo $record[6]; ?> zł</span> -->
                                 <span><?php echo $record[7]; ?></span><br><Br>
-                                <span>Rok wydania: <?php echo $record[8];?></span>
+                                <span>Rok wydania: <?php echo $record[8]; ?></span>
+                                <span class="gamePrice">
+                                    <?php echo $record[6]; ?> zł
+                                </span>
                             </div>
-                            </div>
-                            <form method="POST" action="./Cart.php">
-                                <input type="hidden" name="game_id" value="<?= $record[0] ?>">
-                                <button type="submit" name="addToCart" class="btnBuy">Dodaj do koszyka</button>
-                            </form>
+                        </div>
+
                         <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'): ?>
 
-                            <div>
+                            <div class="gameButtonAdmin">
+
+                                <form method="POST" action="./Cart.php">
+                                    <input type="hidden" name="game_id" value="<?= $record[0] ?>">
+                                    <button type="submit" name="addToCart" class="btnBuy">Dodaj do koszyka</button>
+                                </form>
+
                                 <form method="POST">
                                     <input type="hidden" name="gameToDelete" value="<?= $record[0] ?>">
                                     <button name="btnDelete" class="btnDelete">Usuń</button>
@@ -99,6 +105,13 @@ $row = mysqli_fetch_all($results);
                                 </form>
                             </div>
 
+                        <?php else: ?>
+                            <div class="gameButtonUser">
+                                <form method="POST" action="./Cart.php">
+                                    <input type="hidden" name="game_id" value="<?= $record[0] ?>">
+                                    <button type="submit" name="addToCart" class="btnBuy">Dodaj do koszyka</button>
+                                </form>
+                            </div>
                         <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
