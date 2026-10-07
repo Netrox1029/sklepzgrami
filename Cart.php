@@ -6,20 +6,16 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: logIn.php");
     exit();
 }
-
 if (isset($_POST['addToCart'])) {
     $id = $_POST['game_id'];
-
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
     }
-
     if (!isset($_SESSION['cart'][$id])) {
         $_SESSION['cart'][$id] = 1;
     } else {
         $_SESSION['cart'][$id]++;
     }
-
     header("Location: index1.php");
     exit();
 }
@@ -88,18 +84,25 @@ if (isset($_POST['btnPay'])) {
                     $price = $game['Cena'] * $ilosc;
                     $total += $price;
                     ?>
-                    <div>
-                        <p class="gameInfoLook">
-                            <img src="<?php echo $appid; ?>" width='250px'>	&nbsp;
-                            <?php echo $game['title']; ?>
-                            x<?php echo $ilosc; ?>
-                            - <?php echo $price; ?> zł
-                        </p>
+                    <div class="cartGame">
 
-                        <form method="POST">
-                            <input type="hidden" name="remove_id" value="<?php echo $gameId; ?>" >
+                        <img class="gameImage" src="<?php echo $appid; ?>">
+
+                        <div class="gameInfo">
+                            <h2><?php echo $game['title']; ?></h2>
+
+                            <p>Ilość: <?php echo $ilosc; ?></p>
+
+                            <p class="gamePrice">
+                                <?php echo $price; ?> zł
+                            </p>
+                        </div>
+
+                        <form method="POST" class="removeForm">
+                            <input type="hidden" name="remove_id" value="<?php echo $gameId; ?>">
                             <button class="gamesBtn">Usuń</button>
                         </form>
+
                     </div>
                 <?php endforeach; ?>
                 <div class="paymentLook">

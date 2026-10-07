@@ -89,7 +89,7 @@ $row = mysqli_fetch_all($results);
                                 <?php
                                 if (isset($_POST['btnDelete'])) {
                                     $gameToDelete = $_POST['gameToDelete'];
-                                    $sqlDelete = "DELETE FROM game_gatunek where game_id = $gameToDelete;";
+                                    $sqlDelete .= "DELETE FROM game_gatunek where game_id = $gameToDelete;";
                                     $sqlDelete .= "DELETE FROM biblioteka where game_ID = $gameToDelete;";
                                     $sqlDelete .= "DELETE FROM zakup where game_ID = $gameToDelete;";
                                     $sqlDelete .= "DELETE FROM game where game_id = $gameToDelete;";

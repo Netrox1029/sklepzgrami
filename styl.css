@@ -203,17 +203,18 @@ footer div p{
     height: 49%;
     width: 100%;
     font-size: 25px;
-    padding-top: 30px;
+    padding-top: 25px;
 }
 .gameItemsTag span:nth-child(even){
     font-size: 15px;
-
+    width: 200px;
 }
+
 .gameInfo{
     padding-left: 20px;
 }
 .gamePrice{
-    margin-left: 800px;
+    margin-left: 400px;
     padding: 10px 30px 10px 30px;
     background-color: rgb(43, 44, 44);
 }
@@ -222,45 +223,48 @@ footer div p{
 }
 .btnBuy{
     width: 150px;
-    padding: 15px;
-    background-color: rgb(93, 215, 93);
-    border: 2px solid black;
+    height: 50px;
     border-radius: 20px;
+    border: 2px solid #111;
+    background-color: #4ddf57;
+    color: black;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 .btnBuy:hover{
-    width: 175px;
-    padding: 15px;
-    background-color:rgb(66, 178, 66) ;
-    border: 3px solid black;
-    border-radius: 20px;
+    background-color: #38c942;
+    transform: scale(1.1);
 }
 .btnDelete{
     width: 150px;
-    padding: 15px;
-    background-color: rgb(239, 67, 67);
-    border: 2px solid black;
+    height: 50px;
     border-radius: 20px;
+    border: 2px solid #111;
+    background-color: #e35252;
+    color: black;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 .btnDelete:hover{
-    width: 175px;
-    padding: 15px;
-    background-color:red ;
-    border: 3px solid black;
-    border-radius: 20px;
+    background-color: #eb1f1f;
+    transform: scale(1.1);
 }
 .btnEdit{
     width: 150px;
-    padding: 15px;
-    background-color: rgb(67, 67, 233);
-    border: 2px solid black;
+    height: 50px;
     border-radius: 20px;
+    border: 2px solid #111;
+    background-color: #485de5;
+    color: black;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 .btnEdit:hover{
-    width: 175px;
-    padding: 15px;
-    background-color:blue ;
-    border: 3px solid black;
-    border-radius: 20px;
+   background-color: #233ce4;
+    transform: scale(1.1);
 }
 .gameButtonUser{
     margin-top: 75px;
@@ -270,4 +274,7 @@ footer div p{
 .gameButtonAdmin{
     margin-left: 70px;
 }
-
+header p a:hover {
+    color: #cccccc;
+    text-decoration: underline;
+}

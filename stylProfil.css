@@ -1,87 +1,124 @@
-*{
-    margin: 0;
-}
-header{
-    background-color: rgb(73, 71, 71);
-    width: 100%;
-    height: 100px;
-}
-header div{
-    display: inline-flex;
-}
-header div h1{
-    font-style: italic;
-    font-size: 40px;
-    padding: 25px;
-}
-header div a{
-    text-align: end;
-    font-size: 20px;
-    color:white;
-    margin: 30px;
-}
-header div a:nth-child(1){
-    padding-left: 1000px;
-}
-main::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url(gracz.jpg) center/cover no-repeat;
-  opacity: 0.9; 
-  z-index: -1;
-}
-.wholeProfil::before{
-    width: 1000px;
-    height: 500px;
-    content: "";
-    position:absolute;
-    opacity: 0.6;
-    z-index: -1;
-    border: 5px solid white;
-    border-radius: 40px;
-    background-color: rgb(73, 71, 71);
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.wholeProfil{
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: url(gracz.jpg) center/cover no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+}
+header {
+    width: 100%;
+    height: 90px;
+    background-color: #454343;
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+}
+
+.headerContent {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+header h1 {
+    font-size: 36px;
+    font-style: italic;
+    color: white;
+    margin-right: 45px;
+}
+.headerLinks {
+    display: flex;
+    gap: 55px;
+}
+.headerLinks a {
+    color: white;
+    font-size: 18px;
+    text-decoration: underline;
+    transition: 0.2s;
+}
+
+.headerLinks a:hover {
+    color: #bbbbbb;
+}
+main {
+    width: 100%;
+    min-height: calc(100vh - 90px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 45px;
+}
+.wholeProfil {
+    width: 920px;
+    height: 460px;
+    background-color: rgba(70, 68, 68, 0.93);
+    border: 5px solid white;
+    border-radius: 35px;
+    overflow: hidden;
+    box-shadow:
+        0 0 0 2px #777,
+        0 5px 25px rgba(0, 0, 0, 0.6);
+}
+.info {
+    width: 100%;
+    background-color: #454343;
+    padding: 10px 12px;
+    border-bottom: 1px solid #555;
+}
+
+.info p {
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.info p:first-child {
+    font-size: 27px;
+    margin-bottom: 2px;
+}
+.info span {
+    font-weight: normal;
+}
+.gamesOwned {
+    height: 365px;
+    padding: 18px 10px;
+    overflow-y: auto;
+}
+
+.gamesOwned h2 {
+    font-size: 34px;
+    margin-bottom: 28px;
+}
+.gamesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+.ownedGame {
+    width: 200px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 50px;
-
+    gap: 5px;
 }
-.info{
-    text-align:left;
-    border: 5px solid white;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-    border-bottom: none;
-    margin-top: 1px;
-    width: 1000px;
-    height: 100px;
-    opacity: 1;
-    background-color: rgb(73, 71, 71);
+.ownedGame img {
+    width: 200px;
+    height: 84px;
+    object-fit: cover;
+    display: block;
 }
-.info p:nth-child(2), p:nth-child(3),p:nth-child(4) {
-    padding-left: 10px;
+.ownedGame strong {
+    font-size: 15px;
+    color: white;
 }
-.info p:nth-child(1){
-    padding-top: 10px;
-    padding-left: 10px;
-    font-size: 30px;
-}
-.gamesOwned{
-    width: 1000px;
-    overflow-y: scroll;
-    height: 350px;
-}
-.gamesOwned h2{
-    font-size: 40px;
-    padding: 20px;
-}
-.gamesOwned div{
-    padding-top: 20px;
-    padding-left: 10px;
+.noGames {
+    font-size: 20px;
 }
 
-
+.gamesOwned::-webkit-scrollbar {
+    width: 12px;
+}

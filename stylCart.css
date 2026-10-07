@@ -1,97 +1,154 @@
-*{
-    margin: 0;   
-     font-family: Arial, Helvetica, sans-serif;
+
+ * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-header{
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #687078;
+    color: white;
+}
+
+header {
+    height: 75px;
+    background-color: #454545;
     display: flex;
-    width: 100%;
-    height: 125px;
-    background-color: rgb(73, 71, 71);    
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    border-bottom: 2px solid #555;
 }
-header div h1{
-    text-align: center;
-     font-style: italic;
-    font-size: 72px;
+
+header h1 {
+    font-size: 38px;
     font-weight: bold;
     color: white;
-    text-shadow:
-    -10px -2px 0 #000,
-    4px -2px 0 #000,
-    -10px 2px 0 #000,
-    4px 2px 0 #000;
 }
-header div{
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-}
-header div p a{
-    text-align: center;
-    color: white;
-    font-size: xx-large;
-    text-decoration: none;
-}
-header div p {
-    text-align: center;
-    color: white;
-    font-size: xx-large;
-    text-decoration: none;
-}
-.cartLook div{
-    background-color: lightgray;
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
-}
-.paymentLook{
-    padding: 50px;
-}
-.paymentLook button{
-    width: 150px;
-    padding: 15px;
-    background-color: rgb(93, 215, 93);
-    border: 2px solid black;
-    border-radius: 20px;
-}
-.paymentLook button:hover{
-    width: 175px;
-    padding: 15px;
-    background-color:rgb(66, 178, 66) ;
-    border: 3px solid black;
-    border-radius: 20px;
-}
-.gamesBtn{
-    width: 75px;
-    padding: 15px;
-    background-color: rgb(93, 215, 93);
-    border: 2px solid black;
-    border-radius: 20px;
-}
-.gameInfoLook{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-right: 20px;
-}
-.emptyCart{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 100px;
 
+header p {
+    margin: 0;
 }
-.zakupHis img,p{
-    padding: 10px;
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    transition: 0.2s;
 }
-.zakupHis{
-    background-color: rgb(116, 114, 114);
-    width: 40%;
-    display:flex;
-   align-items: center;
-   padding: 20px;
+
+header a:hover {
+    color: #cccccc;
+    text-decoration: underline;
+}
+main {
+    width: 100%;
+    padding: 48px 14px;
+}
+.cartLook {
+    width: 100%;
+}
+.cartGame {
+    width: 100%;
+    min-height: 212px;
+    background-color: #585e62;
+    display: flex;
+    align-items: center;
+    margin-bottom: 48px;
+    padding: 0;
+}
+
+.gameImage {
+    width: 450px;
+    height: 212px;
+    object-fit: cover;
+    display: block;
+}
+
+.gameInfo {
+    height: 212px;
+    flex: 1;
+    padding: 25px 20px;
+    position: relative;
+}
+
+.gameInfo h2 {
+    font-size: 29px;
+    font-weight: normal;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.gameInfo p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.gamePrice {
+    position: absolute;
+    right: 25px;
+    bottom: 30px;
+    background-color: #292929;
+    padding: 12px 30px;
+    font-size: 22px ;
+    margin: 0;
+}
+.removeForm {
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    margin-right: 30px;
+}
+
+.gamesBtn {
+    width: 145px;
+    height: 47px;
+    border-radius: 20px;
+    border: 2px solid #111;
+    background-color: #f44343;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.gamesBtn:hover {
+    background-color: #d93232;
+    transform: scale(1.03);
+}
+.paymentLook {
+    width: 100%;
+    background-color: #585e62;
+    padding: 25px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.paymentLook h2 {
+    font-size: 27px;
+    font-weight: normal;
+}
+.paymentLook button {
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    border: 2px solid #111;
+    background-color: #4ddf57;
+    color: black;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.paymentLook button:hover {
+    background-color: #38c942;
+    transform: scale(1.03);
+}
+.emptyCart {
+    width: 100%;
+    background-color: #585e62;
+    padding: 60px;
+    text-align: center;
+    font-size: 28px;
 }

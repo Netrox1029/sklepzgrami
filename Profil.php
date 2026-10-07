@@ -25,45 +25,62 @@ $resultGames = mysqli_query($conn, $sqlGames);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylProfil.css">
-    <title>Register</title>
+    <title>Profil - Zteam</title>
 </head>
+
+<body>
 <header>
-    <div>
-        <H1>Twój profil, Witaj <?php echo $user['username']; ?>! </H1>
-    </div>
-    <div>
-        <a href="index1.php">Powrót</a>
-    
-        <a href="ZakupHis.php">Zobacz historie</a>
+    <div class="headerContent">
+        <h1>Twój profil, Witaj <?php echo $user['username']; ?>!</h1>
+        <div class="headerLinks">
+            <a href="index1.php">Powrót</a>
+            <a href="ZakupHis.php">Zobacz historie</a>
+        </div>
     </div>
 </header>
 <main>
     <div class="wholeProfil">
         <div class="info">
-            <p>Nazwa: <?php echo $user['username']; ?></p>
-            <p>Kraj: <?php echo $user['country_Name']; ?></p>
-            <p>Konto utworzone: <?php echo $user['created_at']; ?></p>
-            <p>Rola: <?php echo $user['role']; ?></p>
+            <p>
+                <span>Nazwa:</span>
+                <?php echo $user['username']; ?>
+            </p>
+            <p>
+                <span>Kraj:</span>
+                <?php echo $user['country_Name']; ?>
+            </p>
+            <p>
+                <span>Konto utworzone:</span>
+                <?php echo $user['created_at']; ?>
+            </p>
+            <p>
+                <span>Rola:</span>
+                <?php echo $user['role']; ?>
+            </p>
         </div>
         <div class="gamesOwned">
             <h2>Twoje gry</h2>
-            <div>
+            <div class="gamesList">
                 <?php if (mysqli_num_rows($resultGames) > 0): ?>
-
                     <?php while ($game = mysqli_fetch_assoc($resultGames)): ?>
-
-                        <?php $img = "https://cdn.cloudflare.steamstatic.com/steam/apps/{$game['appid']}/header.jpg"; ?>
-
-                        <img src="<?php echo $img; ?>" width="200"><br>
-                        <strong><?php echo $game['title']; ?></strong><br>
+                        <?php
+                        $img = "https://cdn.cloudflare.steamstatic.com/steam/apps/{$game['appid']}/header.jpg";
+                        ?>
+                        <div class="ownedGame">
+                            <img src="<?php echo $img; ?>">
+                            <strong>
+                                <?php echo $game['title']; ?>
+                            </strong>
+                        </div>
                     <?php endwhile; ?>
                 <?php else: ?>
-                    <p>Nie masz gier</p>
+                    <p class="noGames">
+                        Nie masz gier
+                    </p>
                 <?php endif; ?>
             </div>
         </div>
     </div>
 </main>
 </body>
-
 </html>
